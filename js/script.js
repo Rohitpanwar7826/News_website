@@ -105,7 +105,7 @@ let load = (fild, ...args) => {
                 }).then(function (result) {
                     show_data(result['articles'], args[0])
                 }).catch(function (error) {
-                    alert("Some is wrong..!")
+                    console.log(error)
                 });
             break;
         }
