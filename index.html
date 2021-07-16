@@ -136,7 +136,25 @@
     <!-- One news clicked -->
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-10 mx-auto flex flex-col" id="one_news">
+            <div data-aos="fade-right"
+                class="shadow2 lg:w-1/3 md:w-1/2 p-4 w-full break-word border-2 border-gray-400 rohit"
+                id="img_space${i}">
+                <a id="web" href="${href_link}" target="_blank" class="block relative h-58 rounded overflow-hidden">
+                    <img alt="Image" class="object-cover object-center w-80 h-80 block rohit"
+                        src="${element[i]['urlToImage']}">
+                </a>
+                <h3>${i + 1}</h3>
 
+                <div class="mt-4">
+                    <h3 class="text-xs mt-5 tracking-widest title-font mb-1">${element[i]['source']['name']}</< /h3>
+                        <h2 id="read"
+                            class="title-font mt-5 overflow-clip whitespace-wrap overflow-hidden text-lg font-medium"
+                            id="title1">
+                            ${element[i]['title']}
+                        </h2>
+                        <Button id="${i}" onclick="data_get(this.id)" class="mt-10">Read more</Button>
+                </div>
+            </div>
         </div>
     </section>
 
