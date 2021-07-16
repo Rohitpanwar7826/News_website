@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/path/to/tailwind.css" rel="stylesheet">
+    <link href="./css/aos.css" rel="stylesheet">
+    <link rel="icon"
+        href="https://image.shutterstock.com/image-vector/bar-lettering-illustration-label-badge-600w-1034296870.jpg"
+        type="image/x-icon">
+    <link type="text/css" rel="stylesheet" href="./css/style.css">
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
+</head>
+
+<body>
+    <div class="scroll-up-btn" id="scollbtn">
+        <i class="fas fa-angle-up"></i>
+    </div>
+
+
+
+    <nav class="bg-gray" id="mynav">
+        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="relative flex items-center justify-between h-16">
+                <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+
+                    <button type="button" onclick="menu_bar()"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+
+                        <svg id="open" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+
+                        <svg id="close" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+
+                <div class="flex-1 flex  items-center justify-center sm:items-stretch sm:justify-startb ">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img class="block lg:hidden  w-auto h-10" src="./img/button_r.ico" alt="logo">
+                        <img class="hidden lg:block  w-auto h-10" src="./img/button_r.ico" alt="logo">
+                    </div>
+                    <div class="hidden sm:block sm:ml-12">
+                        <div class="flex space-x-10">
+                            <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                            <a href="https://rohitpanwar7826.github.io/R.k-pub-and-bar/#" target="_blank"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+
+                    <div class="ml-3 relative">
+                        <div>
+                            <button type="button" onclick="open_menu(this)"
+                                class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-red"
+                                id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                <img class="h-8 w-7 rounded-full" src="./img/rohit.jpg" alt="rohit img">
+                            </button>
+                        </div>
+
+                        <div class="origin-top-right z-50 absolute right-0 mt-2 w-40 rounded-md shadow-lg py-1 bg-green-100 ring-1 ring-black ring-opacity-5 focus:outline-none"
+                            role="menu" aria-orientation="vertical" id="menu_bar" aria-labelledby="user-menu-button"
+                            tabindex="-1">
+                            <a href="#" class="cur block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                                id="user-menu-item-0">Rohit Singh Panwar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="hidden" id="mobile-menu">
+            <div class="px-2 z-30 pt-2 pb-3 space-y-3 absolute text-center bg-current w-full das">
+                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+
+                <a href="https://rohitpanwar7826.github.io/R.k-pub-and-bar/#" target="_blank"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-black">
+        <div class="flex relative text-center">
+            <h1 id="myh1"
+                class="text-3xl tracking-wider text-white text-sha uppercase font-bold p-4 self-center z-10 content-center absolute text-center w-full md:text-4xl">
+                Welcome to R.S News<br><br>I m <span class="element1"></span>
+            </h1>
+
+            <div class="w-full object-cover h-72 block mx-auto  sm:block sm:w-full" width="1920" height="288">
+            </div>
+        </div>
+    </div>
+
+
+
+    <button
+        class="h-10 mt-0.5 w-full text-white transition-colors duration-380 bg-red-600 focus:shadow-outline hover:bg-black"
+        onclick="myFunction()" id="btn_dark"><b>Dark mode</b></button>
+    <!-- Contury selection       -->
+
+    <select id="dropp">
+        <option class="opt" value="in">India</option>
+        <option class="opt" value="us">US</option>
+        <option class="opt" value="ca">Canada</option>
+        <option class="opt" value="au">Australia</option>
+        <option class="opt" value="as">America</option>
+    </select>
+
+
+    <select id="drop">
+        <option>general</option>
+        <option>sports</option>
+        <option>technology</option>
+        <option>health</option>
+        <option>business</option>
+    </select>
+
+
+
+
+
+
+    <!-- One news clicked -->
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-10 mx-auto flex flex-col" id="one_news">
+
+        </div>
+    </section>
+
+    <!-- News section started     -->
+    <section class="text-gray-600 body-font ">
+        <div class="container-fluid mx-4 py-30 px-4">
+            <div class="flex flex-wrap space-between -m-4" id="news_set">
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- #-------------Fotter--------------- -->
+    <footer class="text-white body-font bg-black">
+        <div
+            class="container px-4 content-center text-center w-full md:text-4xl py-6 mx-auto flex items-center sm:flex-row flex-col">
+            <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+
+                <span class="ml-3 text-xl  text-white">Rohit Singh Panwar</span>
+            </a>
+            <p
+                class="text-lg hover:text-red-900 text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+                Created By
+                <a href="#" class="break-normal hover:text-red text-white ml-1" rel="noopener noreferrer"> Rohit singh
+                    panwar
+                    |
+                    2020 All rights reserved.</a>
+            </p>
+
+        </div>
+    </footer>
+
+
+
+
+
+
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/script2.js"></script>
+    <script src="./js/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 135,
+            delay: 70,
+            duration: 1100,
+            easing: 'ease',
+            once: false,
+
+        });
+    </script>
+</body>
+
+
+</html>
