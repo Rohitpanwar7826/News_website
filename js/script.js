@@ -76,19 +76,20 @@ let load = (fild, ...args) => {
 
     switch (fild) {
         case 'country': {
-            let url = `${urls_collect.url}${args[0]}&category=${args[1]}${urls_collect.key}`
-            fetch(url)
-                .then(function (response) {
-                    if (response.ok) {
-                        return response.json();
-                    }
-                    else {
-                        throw error;
-                    }
-                }).then(function (result) {
-                    show_data(result['articles'])
-                }).catch(function (error) {
-                    console.log("Wrong")
+            fetch("https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/TrendingNewsAPI?pageNumber=1&pageSize=20&withThumbnails=false&location=us", {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-key": "71c86c0287msha5c846cb2ed7a14p1b1a02jsn3977661518cc",
+                    "x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com"
+                }
+            })
+                .then(response => {
+                    return response.json();
+                }).then(Element => {
+                    show_data(Element['value'])
+                })
+                .catch(err => {
+                    console.error(err);
                 });
             break;
         }
@@ -120,22 +121,21 @@ const show_data = (element) => {
         }
 
         else {
-            let href_link = element[i]['urlToImage'];
             let news = `<div data-aos="fade-right" class="shadow2 lg:w-1/3 md:w-1/2 p-4 w-full break-word border-2 border-gray-400 rohit" id="img_space${i}">
-        <a id="web" href="${href_link}" target="_blank" class="block relative h-58 rounded overflow-hidden">
-            <img alt="Image" class="object-cover object-center w-80 h-80 block rohit" src="${element[i]['urlToImage']}">
-        </a>
-        <h3>${i + 1}</h3>
-
-        <div class="mt-4">
-            <h3 class="text-xs mt-5 tracking-widest title-font mb-1">${element[i]['source']['name']}</</h3>
-            <h2 id="read" class="title-font mt-5 overflow-clip whitespace-wrap overflow-hidden text-lg font-medium"id="title1">
-            ${element[i]['title']}
-            </h2>
-            <Button id="${i}" onclick="data_get(this.id)"  class="mt-10" >Read more</Button>
+            <a id="web" href="${element[i]['image']['url']}" class="block relative h-58 rounded overflow-hidden">
+                <img alt="Image" class="object-cover object-center w-80 h-80 block rohit" src="${element[i]['image']['url']}">
+            </a>
+            <h3>${i + 1}</h3>
+    
+            <div class="mt-4">
+                <h3 class="text-xs mt-5 tracking-widest title-font mb-1">${element[i]['title']}</</h3>
+                <h2 id="read" class="title-font mt-5 overflow-clip whitespace-wrap overflow-hidden text-lg font-medium"id="title1">
+                ${element[i]['title']}
+                </h2>
+                <Button id="${i}" onclick="data_get(this.id)"  class="mt-10" >Read more</Button>
+            </div>
         </div>
-    </div>
-    `;
+        `;
 
             newshtml += news;
         }
