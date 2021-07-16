@@ -1,4 +1,3 @@
-alert("helo")
 window.onscroll = function () { scrollup() }
 let scroll_btn = document.getElementById("scollbtn");
 let scrollup = () => {
@@ -56,7 +55,6 @@ urls_collect = {
     url: 'https://newsapi.org/v2/top-headlines?country=',
     key: '&apiKey=8e2a531577c34455bd105a1208fee4ac',
     urls_complete: `https://newsapi.org/v2/top-headlines?country=in&apiKey=8e2a531577c34455bd105a1208fee4ac`
-    // GET https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=8e2a531577c34455bd105a1208fee4ac
 }
 
 function myFunction() {
