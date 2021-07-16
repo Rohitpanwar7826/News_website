@@ -88,7 +88,7 @@ let load = (fild, ...args) => {
                 }).then(function (result) {
                     show_data(result['articles'])
                 }).catch(function (error) {
-                    console.log(error)
+                    console.log("Wrong")
                 });
             break;
         }
@@ -105,7 +105,7 @@ let load = (fild, ...args) => {
                 }).then(function (result) {
                     show_data(result['articles'], args[0])
                 }).catch(function (error) {
-                    console.log(error)
+                    console.log("wrong")
                 });
             break;
         }
