@@ -1,3 +1,4 @@
+alert("helo")
 window.onscroll = function () { scrollup() }
 let scroll_btn = document.getElementById("scollbtn");
 let scrollup = () => {
