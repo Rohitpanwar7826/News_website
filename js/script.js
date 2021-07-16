@@ -144,8 +144,8 @@ const show_data = (element) => {
     }
     news_set.innerHTML = newshtml;
 }
+window.load(load('country', countrys.value, source.value))
 
-load('country', countrys.value, source.value)
 countrys.onchange = function (event) {
     load('country', countrys.value, source.value)
     up()
