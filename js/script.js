@@ -104,7 +104,7 @@ const show_data = (element) => {
 
         else {
             let news = `<div data-aos="fade-right" class="shadow2 lg:w-1/3 md:w-1/2 p-4 w-full break-word border-2 border-gray-400 rohit" id="img_space${i}">
-            <a id="web" href="${element[i]['image']['url']}" class="block relative h-58 rounded overflow-hidden">
+            <a id="web" href="${element[i]['image']['url']}" target="_blank" class="block relative h-58 rounded overflow-hidden">
                 <img alt="Image" class="object-cover object-center w-80 h-80 block rohit" src="${element[i]['image']['url']}">
             </a>
             <h3>${i + 1}</h3>
