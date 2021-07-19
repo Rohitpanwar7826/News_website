@@ -49,7 +49,7 @@ const menu_bar = () => {
 let news_set = document.getElementById('news_set');
 let one_news = document.getElementById("one_news");
 const countrys = document.querySelector('#dropp');
-const source = document.querySelector('#drop');
+const page = document.querySelector('#drop');
 
 urls_collect = {
     url: 'https://newsapi.org/v2/top-headlines?country=',
@@ -72,46 +72,29 @@ function myFunction() {
     }
 }
 
-let load = (fild, ...args) => {
+let load = (cn, pg) => {
 
-    switch (fild) {
-        case 'country': {
-            fetch("https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/TrendingNewsAPI?pageNumber=1&pageSize=20&withThumbnails=false&location=us", {
-                "method": "GET",
-                "headers": {
-                    "x-rapidapi-key": "71c86c0287msha5c846cb2ed7a14p1b1a02jsn3977661518cc",
-                    "x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com"
-                }
-            })
-                .then(response => {
-                    return response.json();
-                }).then(Element => {
-                    show_data(Element['value'])
-                })
-                .catch(err => {
-                    console.error(err);
-                });
-            break;
+
+    fetch(`https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/TrendingNewsAPI?pageNumber=${pg}&pageSize=20&withThumbnails=false&location=${cn}`, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "71c86c0287msha5c846cb2ed7a14p1b1a02jsn3977661518cc",
+            "x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com"
         }
-        case 'source': {
-            let url = `${urls_collect.url}${args[0]}&category=${args[1]}${urls_collect.key}`
-            fetch(url)
-                .then(function (response) {
-                    if (response.ok) {
-                        return response.json();
-                    }
-                    else {
-                        throw error;
-                    }
-                }).then(function (result) {
-                    show_data(result['articles'], args[0])
-                }).catch(function (error) {
-                    console.log("wrong")
-                });
-            break;
-        }
-    }
+    })
+        .then(response => {
+            return response.json();
+        }).then(Element => {
+            show_data(Element['value'])
+        })
+        .catch(err => {
+            console.error(err);
+        });
+    break;
 }
+
+
+
 const show_data = (element) => {
     let newshtml = "";
 
@@ -144,14 +127,14 @@ const show_data = (element) => {
     }
     news_set.innerHTML = newshtml;
 }
-window.load = load('country', countrys.value, source.value)
+window.load = load(countrys.value, page.value)
 
 countrys.onchange = function (event) {
-    load('country', countrys.value, source.value)
+    load(countrys.value, page.value)
     up()
 }
-source.onchange = function (event) {
-    load('country', countrys.value, source.value)
+page.onchange = function (event) {
+    load(countrys.value, page.value)
     up()
 }
 const up = () => {
