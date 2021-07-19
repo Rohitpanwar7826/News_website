@@ -90,7 +90,6 @@ let load = (cn, pg) => {
         .catch(err => {
             console.error(err);
         });
-    break;
 }
 
 
