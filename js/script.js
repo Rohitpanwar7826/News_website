@@ -96,7 +96,6 @@ const show_data = (element) => {
     let newshtml = "";
     let description = "";
     for (var i = 0; i < element.length; i++) {
-        console.log(element[i]['description']);
         let length = element[i]['description'].length;
         let dis = element[i]['description'].indexOf("Read more about");
         if (dis == -1) {
@@ -134,7 +133,14 @@ const show_data = (element) => {
 
     }
     news_set.innerHTML = newshtml;
+    footer();
 }
+
+const footer = () => {
+    let footer = document.getElementById("footerr");
+    footer.className = "text-white body-font bg-black mt-20";
+}
+
 window.load = load(countrys.value, page.value)
 
 countrys.onchange = function (event) {
