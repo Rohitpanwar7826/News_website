@@ -1,8 +1,8 @@
 var typed = new Typed('.element1', {
     strings: [
 
-        'Rohit Singh Pawar',
-        'A IT Engineer'
+        'R.S News',
+        'R.S News'
 
     ],
     typeSpeed: 130,
