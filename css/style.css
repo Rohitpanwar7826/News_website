@@ -83,7 +83,9 @@ body{
     transition: background-color 1.5s ;
 
 }
-
+#one_news{
+ overflow: hidden;
+}
 option{
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     transition:all 3.3s;
