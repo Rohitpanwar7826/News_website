@@ -72,7 +72,7 @@ function myFunction() {
     }
 }
 
-function load(cn, pg) {
+let load = (cn, pg) => {
     fetch(`https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/TrendingNewsAPI?pageNumber=${pg}&pageSize=20&withThumbnails=false&location=${cn}`, {
         "method": "GET",
         "headers": {
@@ -143,7 +143,7 @@ const footer = () => {
     footer.classList.remove('hidden');
 }
 
-window.load = load(countrys.value, page.value)
+window.load = load(countrys.value, page.value);
 
 countrys.onchange = function (event) {
     load(countrys.value, page.value)
