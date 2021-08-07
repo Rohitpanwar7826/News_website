@@ -1,3 +1,4 @@
+collection_array = [];
 window.onscroll = function () { scrollup() }
 let scroll_btn = document.getElementById("scollbtn");
 let scrollup = () => {
@@ -8,7 +9,6 @@ let scrollup = () => {
         scroll_btn.style.display = "";
     }
 }
-localStorage.clear();
 scroll_btn.addEventListener('click', myfn = () => {
     window.scroll({
         top: 5,
@@ -72,7 +72,7 @@ function myFunction() {
     }
 }
 
-let load = (cn, pg) => {
+function load(cn, pg) {
     fetch(`https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/TrendingNewsAPI?pageNumber=${pg}&pageSize=20&withThumbnails=false&location=${cn}`, {
         "method": "GET",
         "headers": {
@@ -81,8 +81,10 @@ let load = (cn, pg) => {
         }
     })
         .then(response => {
-            return response.json();
+            return (response.json());
+
         }).then(Element => {
+            collection_array = Element['value'];
             show_data(Element['value'])
         })
         .catch(err => {
@@ -138,7 +140,7 @@ const show_data = (element) => {
 
 const footer = () => {
     let footer = document.getElementById("footerr");
-    footer.className = "text-white body-font bg-black mt-20";
+    footer.classList.remove('hidden');
 }
 
 window.load = load(countrys.value, page.value)
@@ -168,27 +170,13 @@ const data_get = (index = -1, ...args) => {
         }
     }
     else {
-        fetch(`https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/TrendingNewsAPI?pageNumber=${page.value}&pageSize=20&withThumbnails=false&location=${countrys.value}`, {
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-key": "71c86c0287msha5c846cb2ed7a14p1b1a02jsn3977661518cc",
-                "x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com"
-            }
-        })
-            .then(function (response) {
-                if (response.ok) {
-                    return response.json();
-                }
-                else {
-                    throw error;
-                }
-            }).then(function (result) {
-                let element = result['value']
-                let hide = document.getElementById("hide_news");
-                if (hide != null) {
-                    hide.style.display = "";
-                }
-                let ones_news = `
+
+        let element = collection_array;
+        let hide = document.getElementById("hide_news");
+        if (hide != null) {
+            hide.style.display = "";
+        }
+        let ones_news = `
                     <div data-aos="zoom-in"  data-aos-delay="600" data-aos-duration="1000"  data-aos-once="false" data-aos-offset="200" id="hide_news" class="shadow lg:w-5/6 md:border-0 lg:border-t-0 lg:border-r-0 lg:border-l-0 mx-auto lg:border-2 lg:border-red-900">
                         <div class="rounded-lg h-64 overflow-hidden">
                             <img alt="content" class="object-cover object-center h-full w-full"
@@ -222,11 +210,9 @@ const data_get = (index = -1, ...args) => {
                                 </div>
                             </div>
                         </div>`
-                one_news.innerHTML = ones_news;
-                up()
-            }).catch(function (error) {
-                alert("Some is wrong..!")
-            });
+        one_news.innerHTML = ones_news;
+        up()
+
 
 
     }
