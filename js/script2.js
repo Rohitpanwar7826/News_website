@@ -2,7 +2,7 @@ var typed = new Typed('.element1', {
     strings: [
 
         'R.S News',
-        'R.S News'
+        'Rohit singh Panwar News'
 
     ],
     typeSpeed: 130,
